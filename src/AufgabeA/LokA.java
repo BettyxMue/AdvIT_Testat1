@@ -1,3 +1,5 @@
+package AufgabeA;
+
 import java.util.concurrent.Semaphore;
 
 public class LokA extends Thread {

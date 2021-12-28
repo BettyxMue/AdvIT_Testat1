@@ -1,3 +1,5 @@
+package aufgabeB;
+
 import java.util.concurrent.Semaphore;
 
 public class LokB extends Thread {
@@ -19,7 +21,7 @@ public class LokB extends Thread {
         warten = new boolean[anzahl];
         privSem = new Semaphore[anzahl];
 
-        for(int i = 0; i < 2; i++) {
+        for(int i = 0; i < anzahl; i++) {
             warten[i] = false;
             privSem[i] = new Semaphore(0, true);
         }
