@@ -22,9 +22,9 @@ Problem.
 
 #### Zugehörige Dateien
 
-`AufgabeA.LokA.java`
+`aufgabeA.LokA.java`
 `LokATest.java`
-`AufgabeA.LokA.class`
+`aufgabeA.LokA.class`
 `LokATest.class`
 
 ### Teilaufgabe b)

@@ -1,4 +1,4 @@
-package AufgabeA;
+package aufgabeA;
 
 import java.util.concurrent.Semaphore;
 
