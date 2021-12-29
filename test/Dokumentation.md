@@ -22,9 +22,9 @@ Problem.
 
 #### Zugehörige Dateien
 
-`aufgabeA.LokA.java`
+`LokA.java`
 `LokATest.java`
-`aufgabeA.LokA.class`
+`LokA.class`
 `LokATest.class`
 
 ### Teilaufgabe b)
@@ -33,12 +33,12 @@ Implementieren Sie eine Java-Lösung für die `enter`- und `exit`-Methoden mit p
 
 #### Zugehörige Dateien
 
-`aufgabeB.LokB.java`
+`LokB.java`
 `LokBTest.java`
-`aufgabeB.LokB.class`
+`LokB.class`
 `LokBTest.class`
 
-### Anmerkung
+## Anmerkung
 
 Die compilierten class-Dateien der Teilaufgaben können im Ordner `out/production/Adv_Testat1` gefunden werden.
 
