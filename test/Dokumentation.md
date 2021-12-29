@@ -38,3 +38,7 @@ Implementieren Sie eine Java-Lösung für die `enter`- und `exit`-Methoden mit p
 `aufgabeB.LokB.class`
 `LokBTest.class`
 
+### Anmerkung
+
+Die compilierten class-Dateien der Teilaufgaben können im Ordner `out/production/Adv_Testat1` gefunden werden.
+
