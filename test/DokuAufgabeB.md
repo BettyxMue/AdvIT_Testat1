@@ -1,5 +1,5 @@
-# Dokumentation zur Teilaufgabe a)
-Implementieren Sie eine Java-Lösung für die `enter`- und `exit`-Methoden als Erzeuger-/Verbraucher-Problem.
+# Dokumentation zur Teilaufgabe b)
+Implementieren Sie eine Java-Lösung für die `enter`- und `exit`-Methoden mit privaten Semaphoren.
 
 ## Umsetzung
 
