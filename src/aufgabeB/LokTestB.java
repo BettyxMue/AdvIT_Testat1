@@ -6,7 +6,7 @@ public class LokTestB {
 
     public static void main(String[] args) {
 
-        // Lok 0 langsamer als Lok 1
+        // Beispiel 1: Lok 0 schneller als Lok 1 (Lok 0 > Lok 1)
         ArrayList<LokB> threads = new ArrayList<>();
 
         final int lokSpeed = 4000;
@@ -18,7 +18,7 @@ public class LokTestB {
             threads.get(i).start();
         }
 
-        /*// Lok 0 gleich schnell wie Lok 1
+        /*// Beispiel 2: Lok 0 gleich schnell wie Lok 1 (Lok 0 = Lok 1)
         ArrayList<aufgabeB.LokB> threads = new ArrayList<>();
 
         final int lokSpeed = 4000;
@@ -30,14 +30,14 @@ public class LokTestB {
             threads.get(i).start();
         }
 
-        // Lok 0 schneller als Lok 1
+        // Beispiel 3: Lok 0 langsamer als Lok 1 (Lok 0 < Lok 1)
         ArrayList<aufgabeB.LokB> threads = new ArrayList<>();
 
         final int lokSpeed = 4000;
 
         for(int i = 0; i < 2; i++) {
-            aufgabeB.LokB lok = new aufgabeB.LokB(i, (lokSpeed * 2) - (i * lokSpeed));
-            System.out.println("Die Geschwindigkeit von Lok " + i + " beträgt " + (lokSpeed * 2) - (i * lokSpeed) + " Einheiten.");
+            aufgabeB.LokB lok = new aufgabeB.LokB(i, ((lokSpeed * 2) - (i * lokSpeed)));
+            System.out.println("Die Geschwindigkeit von Lok " + i + " beträgt " + ((lokSpeed * 2) - (i * lokSpeed)) + " Einheiten.");
             threads.add(lok);
             threads.get(i).start();
         }*/
