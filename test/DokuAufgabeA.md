@@ -14,17 +14,18 @@ Zur Darstellung der Anforderungen an den Code werden drei Beispielfälle mit jew
 Geschwindigkeitsverteilungen durchgeführt. Hierbei ist es wichtig die Reihenfolge der beiden Loks (zuerst Lok 0, danach 
 Lok 1) beizubehalten.
 
-### Beispiel 1: Lok 0 > Lok 1
-Im ersten Beispiel ist Lok 0 schneller als Lok 1. Dies wird über die Dauer der Schlafenszeit der beiden Threads
+### Beispiel 1: Lok 0 < Lok 1
+Im ersten Beispiel ist Lok 0 langsamer als Lok 1. Dies wird über die Dauer der Schlafenszeit der beiden Threads
 realisiert. Diese werden am Anfang bei Initialisierung an den Konstruktor in Form einer undefinierten und daher eher 
-veranschaulichenden Geschwindigkeitseinheit mitgegeben.
+veranschaulichenden Geschwindigkeitseinheit mitgegeben. Hierbei ist wichtig zu verstehen, dass die Schlafenszeit länger 
+ist je größer die "Geschwindigkeit" ist.
 
 ```java
 LokA lok0 = new LokA(0, 8000);
 LokA lok1 = new LokA(1, 4000);
 
-System.out.println("Die Geschwindigkeit von Lok " + lok0.getNumber() + " beträgt " + lok0.getGeschwindigkeit() + " Einheiten.");
-System.out.println("Die Geschwindigkeit von Lok " + lok1.getNumber() + " beträgt " + lok1.getGeschwindigkeit() + " Einheiten.");
+System.out.println("Die Geschwindigkeit von Lok " + lok0.getNummer() + " beträgt " + lok0.getGeschwindigkeit() + " Einheiten.");
+System.out.println("Die Geschwindigkeit von Lok " + lok1.getNummer() + " beträgt " + lok1.getGeschwindigkeit() + " Einheiten.");
 System.out.println("\nStart der Beispielausgabe: \n" );
 
 lok0.start();
@@ -52,9 +53,9 @@ lok1.start();
 #### Ausgabe
 
 
-### Beispiel 3: Lok 0 < Lok 1
-Im dritten Beispiel ist die Geschwindigkeit von Lok 1 höher als die Geschwindigkeit von Lok 0. Daher wird Lok 1 öfters 
-warten müssen, um die abwechselnde Reihenfolge von Lok 0 und Lok 1 zu gewährleisten.
+### Beispiel 3: Lok 0 > Lok 1
+Im dritten Beispiel ist die Geschwindigkeit von Lok 1 geringer als die Geschwindigkeit von Lok 0. Daher wird Lok 0 
+öfters warten müssen, um die abwechselnde Reihenfolge von Lok 0 und Lok 1 zu gewährleisten.
 
 ```java
 LokA lok000 = new LokA(0, 4000);

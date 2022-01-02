@@ -19,7 +19,8 @@ public class LokA extends Thread {
      * @param nummer - Id des Threads --> Verwendung für Bezeichnung der Loks
      * @param geschwindigkeit - Geschwindigkeit jeder Lok wird mittels Zahl (long) als Schlafzeit in Millisekunden
      *                          angegeben und stellt somit deren Geschwindigkeit in undefinierten
-     *                          "Geschwindigkeitseinheiten" dar
+     *                          "Geschwindigkeitseinheiten" dar, wobei hier eine niedrigere Geschwindigkeit für mehr
+     *                          Schnelligkeit sorgt!!!
      *
      */
     public LokA(int nummer, long geschwindigkeit) {
