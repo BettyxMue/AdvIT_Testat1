@@ -1,8 +1,5 @@
 # Advanced IT - Testat 1
 
-Dies ist das Repository von _Babett Müller_ (Matrikelnummer: _2696346_) des Studiengangs "WWI 2020 SE B" für die Bearbeitung der 
-ersten Testataufgabe des Moduls "Advanced IT" der DHWB Mannheim unter Leitung von Herr Prof. Pagnia.
-
 ## Aufgabenstellung
 
 Beim Spielen mit ihrer neuen Holzeisenbahn legen Wladimir und Donald eine Strecke aus zwei Schienenkreisen,
