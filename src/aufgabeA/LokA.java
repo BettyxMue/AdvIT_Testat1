@@ -36,7 +36,7 @@ public class LokA extends Thread {
      *
      */
     public void enterLok0() {
-        System.out.println("Lok " + number + " möchte die Weiche befahren.");
+        System.out.println("Lok " + number + " möchte das gemeinsame Schienenstück befahren.");
 
         try {
             // Lok 0 erwirbt Semaphor "frei" (Setzen des Semaphorwerts auf 0), welches Startwert 1 hat und durch
@@ -46,7 +46,7 @@ public class LokA extends Thread {
             e.printStackTrace(); // automatisch generierter catch-Block durch die acquire-Funktion eines Sempahores
         }
 
-        System.out.println("Lok " + number + " befährt die Weiche.");
+        System.out.println("Lok " + number + " befährt das gemeinsame Schienenstück.");
     }
 
     /***
@@ -61,7 +61,7 @@ public class LokA extends Thread {
         // Lok 0 gibt Semaphor "besetzt" frei (Setzen des Semaphorwerts auf 1), welches Startwert 0 hat, und gibt somit
         // Semaphor für Lok 1 frei, sodass diese kritischen Abschnitt befahren kann
         besetzt.release();
-        System.out.println("Lok " + number + " verlässt die Weiche.");
+        System.out.println("Lok " + number + " verlässt das gemeinsame Schienenstück.");
     }
 
     /***
@@ -73,7 +73,7 @@ public class LokA extends Thread {
      *
      */
     public void enterLok1() {
-        System.out.println("Lok " + number + " möchte die Weiche befahren.");
+        System.out.println("Lok " + number + " möchte das gemeinsame Schienenstück befahren.");
 
         try {
             // Lok 1 erwirbt Semaphor "besetzt" (Setzen des Semaphorwerts auf 0), welches vorher durch das Verlassen von
@@ -83,7 +83,7 @@ public class LokA extends Thread {
             e.printStackTrace(); // automatisch generierter catch-Block durch die acquire-Funktion eines Sempahores
         }
 
-        System.out.println("Lok " + number + " befährt die Weiche.");
+        System.out.println("Lok " + number + " befährt das gemeinsame Schienenstück.");
     }
 
     /***
@@ -98,7 +98,7 @@ public class LokA extends Thread {
         // Lok 1 gibt Semaphor "frei" frei (Setzen des Semaphorwerts auf 1), sodass Lok 0 den kritischen Abschnitt
         // wieder betreten bzw. Semaphor "frei" für Eintritt in dieses erhalten kann
         frei.release();
-        System.out.println("Lok " + number + " verlässt die Weiche.");
+        System.out.println("Lok " + number + " verlässt das gemeinsame Schienenstück.");
     }
 
     /***

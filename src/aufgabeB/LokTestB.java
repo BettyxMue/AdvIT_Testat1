@@ -32,6 +32,8 @@ public class LokTestB {
             threads.get(i).start();
         }
 
+        System.out.println("\nStart der Beispielausgabe: \n" );
+
         /***
          *
          * Beispiel 2: Lok 0 gleich schnell wie Lok 1 (Lok 0 = Lok 1)
@@ -48,7 +50,9 @@ public class LokTestB {
             System.out.println("Die Geschwindigkeit von Lok " + i + " beträgt " + lokSpeed + " Einheiten.");
             threads.add(lok);
             threads.get(i).start();
-        }*/
+        }
+
+        System.out.println("\nStart der Beispielausgabe: \n" );*/
 
         /***
          *
@@ -66,6 +70,8 @@ public class LokTestB {
             System.out.println("Die Geschwindigkeit von Lok " + i + " beträgt " + ((lokSpeed * 2) - (i * lokSpeed)) + " Einheiten.");
             threads.add(lok);
             threads.get(i).start();
-        }*/
+        }
+
+        System.out.println("\nStart der Beispielausgabe: \n" );*/
     }
 }

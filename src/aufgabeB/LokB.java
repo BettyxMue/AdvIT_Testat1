@@ -50,7 +50,7 @@ public class LokB extends Thread {
      *
      */
     public void enterLok0 () {
-        System.out.println("Lok " + id + " möchte die Weiche befahren.");
+        System.out.println("Lok " + id + " möchte das gemeinsame Schienenstück befahren.");
 
         try {
             // Start des kritischen Abschnitts in Bezug auf Counter, sodass dieser immer nur von einer Lok gleichzeitig
@@ -81,7 +81,7 @@ public class LokB extends Thread {
             e.printStackTrace(); // automatisch generierter catch-Block durch die acquire-Funktion eines Sempahores
         }
 
-        System.out.println("Lok " + id + " befährt die Weiche.");
+        System.out.println("Lok " + id + " befährt das gemeinsame Schienenstück.");
     }
 
     /***
@@ -103,7 +103,7 @@ public class LokB extends Thread {
 
         ctr = 1; // Setzen des Counters auf 1, um Reihenfolge von 0 --> 1 zu gewährleisten
 
-        System.out.println("Lok " + id + " verlässt die Weiche.");
+        System.out.println("Lok " + id + " verlässt das gemeinsame Schienenstück.");
         if (warten[1]){                 // Wenn Lok 1 bereits auf das Betreten des kritischen Abschnitts wartet, wird
             warten[1] = false;          // ihr Thread erneut angestoßen, sodass sie diesen Bereich nun befahren kann
             privSem[1].release();
@@ -122,7 +122,7 @@ public class LokB extends Thread {
      *
      */
     public void enterLok1 () {
-        System.out.println("Lok " + id + " möchte die Weiche befahren.");
+        System.out.println("Lok " + id + " möchte das gemeinsame Schienenstück befahren.");
 
         try {
             // Start des kritischen Abschnitts in Bezug auf Counter, sodass dieser immer nur von einer Lok gleichzeitig
@@ -153,7 +153,7 @@ public class LokB extends Thread {
             e.printStackTrace(); // automatisch generierter catch-Block durch die acquire-Funktion eines Sempahores
         }
 
-        System.out.println("Lok " + id + " befährt die Weiche.");
+        System.out.println("Lok " + id + " befährt das gemeinsame Schienenstück.");
     }
 
     /***
@@ -175,7 +175,7 @@ public class LokB extends Thread {
 
         ctr = 0; // Setzen des Counters auf 0, um Reihenfolge von 0 --> 1 zu gewährleisten
 
-        System.out.println("Lok " + id + " verlässt die Weiche.");
+        System.out.println("Lok " + id + " verlässt das gemeinsame Schienenstück.");
         if (warten[0]){                 // Wenn Lok 1 bereits auf das Betreten des kritischen Abschnitts wartet, wird
             warten[0] = false;          // ihr Thread erneut angestoßen, sodass sie diesen Bereich nun befahren kann
             privSem[0].release();

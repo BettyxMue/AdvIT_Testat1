@@ -24,6 +24,7 @@ public class LokTestA {
 
         System.out.println("Die Geschwindigkeit von Lok " + lok1.getNumber() + " beträgt " + lok1.getGeschwindigkeit() + " Einheiten.");
         lok1.start();
+        System.out.println("\nStart der Beispielausgabe: \n" );
 
         /***
          *
@@ -37,7 +38,8 @@ public class LokTestA {
         lok0.start();
 
         System.out.println("Die Geschwindigkeit von Lok " + lok1.getNumber() + " beträgt " + lok1.getGeschwindigkeit() + " Einheiten.");
-        lok1.start();*/
+        lok1.start();
+        System.out.println("\nStart der Beispielausgabe: \n" );*/
 
         /***
          *
@@ -51,6 +53,7 @@ public class LokTestA {
         lok0.start();
 
         System.out.println("Die Geschwindigkeit von Lok " + lok1.getNumber() + " beträgt " + lok1.getGeschwindigkeit() + " Einheiten.");
-        lok1.start();*/
+        lok1.start();
+        System.out.println("\nStart der Beispielausgabe: \n" );*/
     }
 }
