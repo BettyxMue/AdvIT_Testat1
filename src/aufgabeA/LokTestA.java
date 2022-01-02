@@ -13,10 +13,10 @@ public class LokTestA {
 
         /**
          *
-         * Beispiel 1: Lok 0 langsamer als Lok 1 (Lok 0 < Lok 1)
+         * Beispiel 1: Lok 0 schneller als Lok 1 (Lok 0 > Lok 1)
          *
          */
-        /*LokA lok0 = new LokA(0, 8000);
+        LokA lok0 = new LokA(0, 8000);
         LokA lok1 = new LokA(1, 4000);
 
         System.out.println("Die Geschwindigkeit von Lok " + lok0.getNummer() + " beträgt " + lok0.getGeschwindigkeit() + " Einheiten.");
@@ -24,7 +24,7 @@ public class LokTestA {
         System.out.println("\nStart der Beispielausgabe: \n" );
 
         lok0.start();
-        lok1.start();*/
+        lok1.start();
 
         /**
          *
@@ -43,10 +43,10 @@ public class LokTestA {
 
         /**
          *
-         * Beispiel 3: Lok 0 schneller als Lok 1 (Lok 0 > Lok 1)
+         * Beispiel 3: Lok 0 langsamer als Lok 1 (Lok 0 < Lok 1)
          *
          */
-        LokA lok0 = new LokA(0, 4000);
+        /*LokA lok0 = new LokA(0, 4000);
         LokA lok1 = new LokA(1, 8000);
 
         System.out.println("Die Geschwindigkeit von Lok " + lok0.getNummer() + " beträgt " + lok0.getGeschwindigkeit() + " Einheiten.");
@@ -54,6 +54,6 @@ public class LokTestA {
         System.out.println("\nStart der Beispielausgabe: \n" );
 
         lok0.start();
-        lok1.start();
+        lok1.start();*/
     }
 }

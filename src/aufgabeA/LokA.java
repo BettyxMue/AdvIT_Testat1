@@ -12,6 +12,10 @@ public class LokA extends Thread {
     private static Semaphore besetzt = new Semaphore(0, true);
     private static Semaphore frei = new Semaphore(1, true);
 
+    // Initialisierung der Steckenlängen
+    private final long laengeEigeneStrecke = 8000;
+    private final long laengeGeteilteStrecke = 4000;
+
     /**
      *
      * Dies ist der Konstruktor der Klasse LokA. Jede Lok stellt dabei einen Thread dar.
@@ -108,14 +112,14 @@ public class LokA extends Thread {
      * Je kürzer eine Lok bzw. der durch die Lok dargestellten Thread schläft, desto "schneller" fährt sie.
      *
      * @return void
-     * @param geschwindigkeit
+     * @param zeit
      *
      */
-    public void fahren(long geschwindigkeit) {
+    public void fahren(long zeit) {
         System.out.println("Lok " + nummer + " fährt.");
 
         try {
-            sleep(geschwindigkeit);
+            sleep(zeit);
         } catch (InterruptedException e) {
             e.printStackTrace(); // automatisch generierter catch-Block durch die sleep-Funktion eines Threads
         }
@@ -132,19 +136,18 @@ public class LokA extends Thread {
     @Override
     public void run() {
         if (nummer == 0) {  // Durch eine if-Abfrage, wird sichergestellt, dass auch nur Lok0-Funktionen für Lok 0
-                        // ausgeführt werden.
+                            // ausgeführt werden.
             while (true) {
                 try {
                     // Simulation des Fahrens auf der eigenen Strecke von Lok 0
-                    fahren(geschwindigkeit);
+                    fahren((laengeEigeneStrecke / this.geschwindigkeit) * 1000);
                     // Start des Einfahrens der Lok 0 in den kritischen Bereich (bzw. Versuch, wenn dieser bereits
                     // von Lok 1 befahren wird)
                     enterLok0();
-                    sleep(this.geschwindigkeit / 2);   // Um den Zeitraum innerhalb des kritischen Abschnitts zu
-                                                            // simulieren, schläft die Lok bzw. der Thread hier für die
-                                                            // Hälfte der Zeit, die als ihre Geschwindigkeit angegeben
-                                                            // ist.
-                    // Start des Verlassens des kritischen Bereichs von Lok 0
+                    this.sleep((laengeGeteilteStrecke/ this.geschwindigkeit / 2) * 1000);
+                            // Um den Zeitraum innerhalb des kritischen Abschnitts zu simulieren, schläft die Lok bzw.
+                            // der Thread hier für die Zeit, die sie braucht um mit ihrer "Geschwindigkeit" durch den
+                            // geteilten Abschnitt zu fahren.
                     exitLok0();
                 } catch (InterruptedException e) {
                     e.printStackTrace(); // automatisch generierter catch-Block durch die sleep-Funktion eines Threads
@@ -154,18 +157,18 @@ public class LokA extends Thread {
         }
 
         if (nummer == 1) {  // Durch eine if-Abfrage, wird sichergestellt, dass auch nur Lok1-Funktionen für Lok 1
-                        // ausgeführt werden.
+                            // ausgeführt werden.
             while (true) {
                 try {
                     // Simulation des Fahrens auf der eigenen Strecke von Lok 1
-                    fahren(geschwindigkeit);
+                    fahren((laengeEigeneStrecke / this.geschwindigkeit) * 1000);
                     // Start des Einfahrens der Lok 1 in den kritischen Bereich (bzw. Versuch, wenn dieser bereits
                     // von Lok 0 befahren wird)
                     enterLok1();
-                    sleep(this.geschwindigkeit / 2);    // Um den Zeitraum innerhalb des kritischen Abschnitts zu
-                                                             // simulieren, schläft die Lok bzw. der Thread hier für die
-                                                             // Hälfte der Zeit, die als ihre Geschwindigkeit angegeben
-                                                             // ist.
+                    this.sleep((laengeGeteilteStrecke / this.geschwindigkeit) * 1000);
+                            // Um den Zeitraum innerhalb des kritischen Abschnitts zu simulieren, schläft die Lok bzw.
+                            // der Thread hier für die Zeit, die sie braucht um mit ihrer "Geschwindigkeit" durch den
+                            // geteilten Abschnitt zu fahren.
                     // Start des Verlassens des kritischen Bereichs von Lok 1
                     exitLok1();
                 } catch (InterruptedException e) {

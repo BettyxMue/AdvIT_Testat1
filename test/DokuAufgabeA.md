@@ -14,11 +14,11 @@ Zur Darstellung der Anforderungen an den Code werden drei Beispielfälle mit jew
 Geschwindigkeitsverteilungen durchgeführt. Hierbei ist es wichtig die Reihenfolge der beiden Loks (zuerst Lok 0, danach 
 Lok 1) beizubehalten.
 
-### Beispiel 1: Lok 0 < Lok 1
-Im ersten Beispiel ist Lok 0 langsamer als Lok 1. Dies wird über die Dauer der Schlafenszeit der beiden Threads
-realisiert. Diese werden am Anfang bei Initialisierung an den Konstruktor in Form einer undefinierten und daher eher 
-veranschaulichenden Geschwindigkeitseinheit mitgegeben. Hierbei ist wichtig zu verstehen, dass die Schlafenszeit länger 
-ist je größer die "Geschwindigkeit" ist.
+### Beispiel 1: Lok 0 > Lok 1
+Im ersten Beispiel ist Lok 0 schneller als Lok 1. Dies wird über die Dauer der Schlafenszeit der beiden Threads
+realisiert. Diese werden am Anfang bei Initialisierung an den Konstruktor in Form einer undefinierten und daher eher
+veranschaulichenden Geschwindigkeitseinheit mitgegeben. Lok 0 wird öfters warten müssen, um die Reihenfolge zu
+gewährleisten.
 
 ```java
 LokA lok0 = new LokA(0, 8000);
@@ -39,26 +39,30 @@ lok1.start();
 Die Geschwindigkeit von Lok 0 beträgt 8000 Einheiten.
 Die Geschwindigkeit von Lok 1 beträgt 4000 Einheiten.
 
-Start der Beispielausgabe:
+Start der Beispielausgabe: 
 
-Lok 1 fährt.
 Lok 0 fährt.
-Lok 1 möchte das gemeinsame Schienenstück befahren.
+Lok 1 fährt.
 Lok 0 möchte das gemeinsame Schienenstück befahren.
 Lok 0 befährt das gemeinsame Schienenstück.
 Lok 0 verlässt das gemeinsame Schienenstück.
 Lok 0 fährt.
+Lok 0 möchte das gemeinsame Schienenstück befahren.
+Lok 1 möchte das gemeinsame Schienenstück befahren.
 Lok 1 befährt das gemeinsame Schienenstück.
 Lok 1 verlässt das gemeinsame Schienenstück.
 Lok 1 fährt.
-Lok 1 möchte das gemeinsame Schienenstück befahren.
-Lok 0 möchte das gemeinsame Schienenstück befahren.
 Lok 0 befährt das gemeinsame Schienenstück.
 Lok 0 verlässt das gemeinsame Schienenstück.
 Lok 0 fährt.
+Lok 0 möchte das gemeinsame Schienenstück befahren.
+Lok 1 möchte das gemeinsame Schienenstück befahren.
 Lok 1 befährt das gemeinsame Schienenstück.
 Lok 1 verlässt das gemeinsame Schienenstück.
 Lok 1 fährt.
+Lok 0 befährt das gemeinsame Schienenstück.
+Lok 0 verlässt das gemeinsame Schienenstück.
+Lok 0 fährt.
 ```
 
 ### Beispiel 2: Lok 0 = Lok 1
@@ -105,8 +109,8 @@ Lok 1 verlässt das gemeinsame Schienenstück.
 Lok 1 fährt.
 ```
 
-### Beispiel 3: Lok 0 > Lok 1
-Im dritten Beispiel ist die Geschwindigkeit von Lok 1 geringer als die Geschwindigkeit von Lok 0. Daher wird Lok 0 
+### Beispiel 3: Lok 0 < Lok 1
+Im dritten Beispiel ist die Geschwindigkeit von Lok 1 höher als die Geschwindigkeit von Lok 0. Daher wird Lok 1 
 öfters warten müssen, um die abwechselnde Reihenfolge von Lok 0 und Lok 1 zu gewährleisten.
 
 ```java
@@ -130,28 +134,24 @@ Die Geschwindigkeit von Lok 1 beträgt 8000 Einheiten.
 
 Start der Beispielausgabe: 
 
-Lok 0 fährt.
 Lok 1 fährt.
+Lok 0 fährt.
+Lok 1 möchte das gemeinsame Schienenstück befahren.
 Lok 0 möchte das gemeinsame Schienenstück befahren.
 Lok 0 befährt das gemeinsame Schienenstück.
 Lok 0 verlässt das gemeinsame Schienenstück.
 Lok 0 fährt.
-Lok 1 möchte das gemeinsame Schienenstück befahren.
-Lok 1 befährt das gemeinsame Schienenstück.
-Lok 0 möchte das gemeinsame Schienenstück befahren.
-Lok 1 verlässt das gemeinsame Schienenstück.
-Lok 1 fährt.
-Lok 0 befährt das gemeinsame Schienenstück.
-Lok 0 verlässt das gemeinsame Schienenstück.
-Lok 0 fährt.
-Lok 0 möchte das gemeinsame Schienenstück befahren.
-Lok 1 möchte das gemeinsame Schienenstück befahren.
 Lok 1 befährt das gemeinsame Schienenstück.
 Lok 1 verlässt das gemeinsame Schienenstück.
 Lok 1 fährt.
+Lok 1 möchte das gemeinsame Schienenstück befahren.
+Lok 0 möchte das gemeinsame Schienenstück befahren.
 Lok 0 befährt das gemeinsame Schienenstück.
 Lok 0 verlässt das gemeinsame Schienenstück.
 Lok 0 fährt.
+Lok 1 befährt das gemeinsame Schienenstück.
+Lok 1 verlässt das gemeinsame Schienenstück.
+Lok 1 fährt.
 ```
 
 ## Auswertung

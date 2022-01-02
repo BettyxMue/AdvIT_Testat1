@@ -16,7 +16,7 @@ public class LokTestB {
 
         /**
          *
-         * Beispiel 1: Lok 0 langsamer als Lok 1 (Lok 0 < Lok 1)
+         * Beispiel 1: Lok 0 schneller als Lok 1 (Lok 0 > Lok 1)
          *
          */
         ArrayList<LokB> threads = new ArrayList<>();
@@ -56,7 +56,7 @@ public class LokTestB {
 
         /**
          *
-         * Beispiel 3: Lok 0 schneller als Lok 1 (Lok 0 > Lok 1)
+         * Beispiel 3: Lok 0 langsamer als Lok 1 (Lok 0 < Lok 1)
          *
          */
         /*ArrayList<LokB> threads = new ArrayList<>();
