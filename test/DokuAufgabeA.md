@@ -1,6 +1,9 @@
 # Dokumentation zur Teilaufgabe a)
 Implementieren Sie eine Java-Lösung für die `enter`- und `exit`-Methoden als Erzeuger-/Verbraucher-Problem.
 
+### Zugehörige Dateien
+`LokA.java` `LokTestA.java` `LokA.class` `LokTestA.class`
+
 ## Umsetzung
 Um die Problemstellung auf Grundlage der Erzeuger-/Verbraucher-Problematik zu beheben, werden zwei Sempahoren verwendet 
 mit den folgenden Eigenschaften:
@@ -72,6 +75,10 @@ Lok 0 verlässt das gemeinsame Schienenstück.
 Lok 0 fährt.
 ```
 
+#### Auswertung
+Beispiel 1 erfüllt die vorgegebenen Bedingungen. Obwohl Lok 0 schneller ist als Lok 1, wird die Reihenfolge (Lok 0
+--> Lok 1) eingehalten. Dies führt dazu, dass Lok 0 öfter warten muss als Lok 1.
+
 ### Beispiel 2: Lok 0 = Lok 1
 Im zweiten Beispiel sind beide Loks gleich schnell, jedoch muss trotzdem die vorgegebene Reihenfolge beibehalten werden.
 
@@ -86,10 +93,6 @@ System.out.println("\nStart der Beispielausgabe: \n" );
 lok0.start();
 lok1.start();
 ```
-
-#### Auswertung
-Beispiel 1 erfüllt die vorgegebenen Bedingungen. Obwohl Lok 0 schneller ist als Lok 1, wird die Reihenfolge (Lok 0
---> Lok 1) eingehalten. Dies führt dazu, dass Lok 0 öfter warten muss als Lok 1.
 
 #### Ausgabe
 Die Konsolenausgabe sieht für dieses 2. Beispiel wie folgt aus:
