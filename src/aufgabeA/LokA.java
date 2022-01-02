@@ -17,7 +17,7 @@ public class LokA extends Thread {
      * Dies ist der Konstruktor der Klasse LokA. Jede Lok stellt dabei einen Thread dar.
      *
      * Return: void
-     * @param: id, geschwindigkeit
+     * @param: number, geschwindigkeit
      *
      */
     public LokA(int number, long geschwindigkeit) {

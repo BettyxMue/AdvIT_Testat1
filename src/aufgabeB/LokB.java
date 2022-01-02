@@ -19,7 +19,7 @@ public class LokB extends Thread {
 
     /***
      *
-     * Dies ist der Konstruktor der Klasse LokA. Jede Lok stellt dabei einen Thread dar.
+     * Dies ist der Konstruktor der Klasse LokB. Jede Lok stellt dabei einen Thread dar.
      *
      * Return: void
      * @param: id, geschwindigkeit
