@@ -26,7 +26,7 @@ public class LokB extends Thread {
      * @param geschwindigkeit - Geschwindigkeit jeder Lok wird mittels Zahl (long) als Schlafzeit in Millisekunden
      *                          angegeben und stellt somit deren Geschwindigkeit in undefinierten
      *                          "Geschwindigkeitseinheiten" dar, wobei hier eine niedrigere Geschwindigkeit für mehr
-     *                          Schnelligkeit sorgt!!!
+     *                          Schnelligkeit sorgt, da der Thread nicht so lang schlafen muss!!!
      *
      */
     public LokB(int id, long geschwindigkeit) {

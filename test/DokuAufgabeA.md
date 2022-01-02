@@ -35,15 +35,41 @@ lok1.start();
 #### Ausgabe
 
 
+```java
+Die Geschwindigkeit von Lok 0 beträgt 8000 Einheiten.
+Die Geschwindigkeit von Lok 1 beträgt 4000 Einheiten.
+
+Start der Beispielausgabe:
+
+Lok 1 fährt.
+Lok 0 fährt.
+Lok 1 möchte das gemeinsame Schienenstück befahren.
+Lok 0 möchte das gemeinsame Schienenstück befahren.
+Lok 0 befährt das gemeinsame Schienenstück.
+Lok 0 verlässt das gemeinsame Schienenstück.
+Lok 0 fährt.
+Lok 1 befährt das gemeinsame Schienenstück.
+Lok 1 verlässt das gemeinsame Schienenstück.
+Lok 1 fährt.
+Lok 1 möchte das gemeinsame Schienenstück befahren.
+Lok 0 möchte das gemeinsame Schienenstück befahren.
+Lok 0 befährt das gemeinsame Schienenstück.
+Lok 0 verlässt das gemeinsame Schienenstück.
+Lok 0 fährt.
+Lok 1 befährt das gemeinsame Schienenstück.
+Lok 1 verlässt das gemeinsame Schienenstück.
+Lok 1 fährt.
+```
+
 ### Beispiel 2: Lok 0 = Lok 1
 Im zweiten Beispiel sind beide Loks gleich schnell, jedoch muss trotzdem die vorgegebene Reihenfolge beibehalten werden.
 
 ```java
-LokA lok00 = new LokA(0, 4000);
-LokA lok01 = new LokA(1, 4000);
+LokA lok0 = new LokA(0, 4000);
+LokA lok1 = new LokA(1, 4000);
 
-System.out.println("Die Geschwindigkeit von Lok " + lok0.getNumber() + " beträgt " + lok0.getGeschwindigkeit() + " Einheiten.");
-System.out.println("Die Geschwindigkeit von Lok " + lok1.getNumber() + " beträgt " + lok1.getGeschwindigkeit() + " Einheiten.");
+System.out.println("Die Geschwindigkeit von Lok " + lok0.getNummer() + " beträgt " + lok0.getGeschwindigkeit() + " Einheiten.");
+System.out.println("Die Geschwindigkeit von Lok " + lok1.getNummer() + " beträgt " + lok1.getGeschwindigkeit() + " Einheiten.");
 System.out.println("\nStart der Beispielausgabe: \n" );
 
 lok0.start();
@@ -52,17 +78,43 @@ lok1.start();
 
 #### Ausgabe
 
+
+```java
+Die Geschwindigkeit von Lok 0 beträgt 4000 Einheiten.
+Die Geschwindigkeit von Lok 1 beträgt 4000 Einheiten.
+
+Start der Beispielausgabe: 
+
+Lok 1 fährt.
+Lok 0 fährt.
+Lok 0 möchte das gemeinsame Schienenstück befahren.
+Lok 1 möchte das gemeinsame Schienenstück befahren.
+Lok 0 befährt das gemeinsame Schienenstück.
+Lok 0 verlässt das gemeinsame Schienenstück.
+Lok 0 fährt.
+Lok 1 befährt das gemeinsame Schienenstück.
+Lok 1 verlässt das gemeinsame Schienenstück.
+Lok 1 fährt.
+Lok 0 möchte das gemeinsame Schienenstück befahren.
+Lok 0 befährt das gemeinsame Schienenstück.
+Lok 0 verlässt das gemeinsame Schienenstück.
+Lok 1 möchte das gemeinsame Schienenstück befahren.
+Lok 0 fährt.
+Lok 1 befährt das gemeinsame Schienenstück.
+Lok 1 verlässt das gemeinsame Schienenstück.
+Lok 1 fährt.
+```
 
 ### Beispiel 3: Lok 0 > Lok 1
 Im dritten Beispiel ist die Geschwindigkeit von Lok 1 geringer als die Geschwindigkeit von Lok 0. Daher wird Lok 0 
 öfters warten müssen, um die abwechselnde Reihenfolge von Lok 0 und Lok 1 zu gewährleisten.
 
 ```java
-LokA lok000 = new LokA(0, 4000);
-LokA lok001 = new LokA(1, 8000);
+LokA lok0 = new LokA(0, 4000);
+LokA lok1 = new LokA(1, 8000);
 
-System.out.println("Die Geschwindigkeit von Lok " + lok0.getNumber() + " beträgt " + lok0.getGeschwindigkeit() + " Einheiten.");
-System.out.println("Die Geschwindigkeit von Lok " + lok1.getNumber() + " beträgt " + lok1.getGeschwindigkeit() + " Einheiten.");
+System.out.println("Die Geschwindigkeit von Lok " + lok0.getNummer() + " beträgt " + lok0.getGeschwindigkeit() + " Einheiten.");
+System.out.println("Die Geschwindigkeit von Lok " + lok1.getNummer() + " beträgt " + lok1.getGeschwindigkeit() + " Einheiten.");
 System.out.println("\nStart der Beispielausgabe: \n" );
 
 lok0.start();
@@ -71,5 +123,35 @@ lok1.start();
 
 #### Ausgabe
 
+
+```java
+Die Geschwindigkeit von Lok 0 beträgt 4000 Einheiten.
+Die Geschwindigkeit von Lok 1 beträgt 8000 Einheiten.
+
+Start der Beispielausgabe: 
+
+Lok 0 fährt.
+Lok 1 fährt.
+Lok 0 möchte das gemeinsame Schienenstück befahren.
+Lok 0 befährt das gemeinsame Schienenstück.
+Lok 0 verlässt das gemeinsame Schienenstück.
+Lok 0 fährt.
+Lok 1 möchte das gemeinsame Schienenstück befahren.
+Lok 1 befährt das gemeinsame Schienenstück.
+Lok 0 möchte das gemeinsame Schienenstück befahren.
+Lok 1 verlässt das gemeinsame Schienenstück.
+Lok 1 fährt.
+Lok 0 befährt das gemeinsame Schienenstück.
+Lok 0 verlässt das gemeinsame Schienenstück.
+Lok 0 fährt.
+Lok 0 möchte das gemeinsame Schienenstück befahren.
+Lok 1 möchte das gemeinsame Schienenstück befahren.
+Lok 1 befährt das gemeinsame Schienenstück.
+Lok 1 verlässt das gemeinsame Schienenstück.
+Lok 1 fährt.
+Lok 0 befährt das gemeinsame Schienenstück.
+Lok 0 verlässt das gemeinsame Schienenstück.
+Lok 0 fährt.
+```
 
 ## Auswertung

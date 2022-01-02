@@ -20,7 +20,7 @@ public class LokA extends Thread {
      * @param geschwindigkeit - Geschwindigkeit jeder Lok wird mittels Zahl (long) als Schlafzeit in Millisekunden
      *                          angegeben und stellt somit deren Geschwindigkeit in undefinierten
      *                          "Geschwindigkeitseinheiten" dar, wobei hier eine niedrigere Geschwindigkeit für mehr
-     *                          Schnelligkeit sorgt!!!
+     *                          Schnelligkeit sorgt, da der Thread nicht so lang schlafen muss!!!
      *
      */
     public LokA(int nummer, long geschwindigkeit) {
@@ -59,10 +59,10 @@ public class LokA extends Thread {
      *
      */
     public void exitLok0() {
+        System.out.println("Lok " + nummer + " verlässt das gemeinsame Schienenstück.");
         // Lok 0 gibt Semaphor "besetzt" frei (Setzen des Semaphorwerts auf 1), welches Startwert 0 hat, und gibt somit
         // Semaphor für Lok 1 frei, sodass diese kritischen Abschnitt befahren kann
         besetzt.release();
-        System.out.println("Lok " + nummer + " verlässt das gemeinsame Schienenstück.");
     }
 
     /**
@@ -96,10 +96,10 @@ public class LokA extends Thread {
      *
      */
     public void exitLok1() {
+        System.out.println("Lok " + nummer + " verlässt das gemeinsame Schienenstück.");
         // Lok 1 gibt Semaphor "frei" frei (Setzen des Semaphorwerts auf 1), sodass Lok 0 den kritischen Abschnitt
         // wieder betreten bzw. Semaphor "frei" für Eintritt in dieses erhalten kann
         frei.release();
-        System.out.println("Lok " + nummer + " verlässt das gemeinsame Schienenstück.");
     }
 
     /**

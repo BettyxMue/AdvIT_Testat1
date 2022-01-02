@@ -4,6 +4,26 @@ Implementieren Sie eine Java-Lösung für die `enter`- und `exit`-Methoden mit p
 ## Umsetzung
 
 
+```java
+private static boolean[] warten;
+
+private static Semaphore mutex = new Semaphore(1, true);
+private static Semaphore[] privSem;
+
+public LokB(int id, long geschwindigkeit) {
+    this.id = id;                          
+    this.geschwindigkeit = geschwindigkeit; 
+       
+    warten = new boolean[2];
+    privSem = new Semaphore[2];
+    
+    for(int i = 0; i < 2; i++) {
+        warten[i] = false;
+        privSem[i] = new Semaphore(0, true);
+    }
+}
+```        
+    
 ## Beispiele
 
 
@@ -28,6 +48,37 @@ for(int i = 0; i < 2; i++) {
 System.out.println("\nStart der Beispielausgabe: \n" );
 ```
 
+#### Ausgabe
+
+
+```java
+Die Geschwindigkeit von Lok 0 beträgt 8000 Einheiten.
+Die Geschwindigkeit von Lok 1 beträgt 4000 Einheiten.
+
+Start der Beispielausgabe: 
+
+Lok 1 fährt.
+Lok 0 fährt.
+Lok 1 möchte das gemeinsame Schienenstück befahren.
+Lok 1 muss warten.
+Lok 0 möchte das gemeinsame Schienenstück befahren.
+Lok 0 befährt das gemeinsame Schienenstück.
+Lok 0 verlässt das gemeinsame Schienenstück.
+Lok 0 fährt.
+Lok 1 befährt das gemeinsame Schienenstück.
+Lok 1 verlässt das gemeinsame Schienenstück.
+Lok 1 fährt.
+Lok 1 möchte das gemeinsame Schienenstück befahren.
+Lok 1 muss warten.
+Lok 0 möchte das gemeinsame Schienenstück befahren.
+Lok 0 befährt das gemeinsame Schienenstück.
+Lok 0 verlässt das gemeinsame Schienenstück.
+Lok 0 fährt.
+Lok 1 befährt das gemeinsame Schienenstück.
+Lok 1 verlässt das gemeinsame Schienenstück.
+Lok 1 fährt.
+```
+
 ### Beispiel 2: Lok 0 = Lok 1
 Im zweiten Beispiel sind beide Loks gleich schnell, jedoch muss trotzdem die vorgegebene Reihenfolge beibehalten werden.
 
@@ -44,6 +95,37 @@ for(int i = 0; i < 2; i++) {
 }
 
 System.out.println("\nStart der Beispielausgabe: \n" );
+```
+
+#### Ausgabe
+
+
+```java
+Die Geschwindigkeit von Lok 0 beträgt 4000 Einheiten.
+Die Geschwindigkeit von Lok 1 beträgt 4000 Einheiten.
+
+Start der Beispielausgabe: 
+
+Lok 0 fährt.
+Lok 1 fährt.
+Lok 1 möchte das gemeinsame Schienenstück befahren.
+Lok 0 möchte das gemeinsame Schienenstück befahren.
+Lok 1 muss warten.
+Lok 0 befährt das gemeinsame Schienenstück.
+Lok 0 verlässt das gemeinsame Schienenstück.
+Lok 0 fährt.
+Lok 1 befährt das gemeinsame Schienenstück.
+Lok 1 verlässt das gemeinsame Schienenstück.
+Lok 1 fährt.
+Lok 0 möchte das gemeinsame Schienenstück befahren.
+Lok 0 befährt das gemeinsame Schienenstück.
+Lok 1 möchte das gemeinsame Schienenstück befahren.
+Lok 1 muss warten.
+Lok 0 verlässt das gemeinsame Schienenstück.
+Lok 0 fährt.
+Lok 1 befährt das gemeinsame Schienenstück.
+Lok 1 verlässt das gemeinsame Schienenstück.
+Lok 1 fährt.
 ```
 
 ### Beispiel 3: Lok 0 > Lok 1
@@ -63,6 +145,41 @@ for(int i = 0; i < 2; i++) {
 }
 
 System.out.println("\nStart der Beispielausgabe: \n" );
+```
+
+#### Ausgabe
+
+
+```java
+Die Geschwindigkeit von Lok 0 beträgt 4000 Einheiten.
+Die Geschwindigkeit von Lok 1 beträgt 8000 Einheiten.
+
+Start der Beispielausgabe: 
+
+Lok 1 fährt.
+Lok 0 fährt.
+Lok 0 möchte das gemeinsame Schienenstück befahren.
+Lok 0 befährt das gemeinsame Schienenstück.
+Lok 0 verlässt das gemeinsame Schienenstück.
+Lok 0 fährt.
+Lok 1 möchte das gemeinsame Schienenstück befahren.
+Lok 1 befährt das gemeinsame Schienenstück.
+Lok 0 möchte das gemeinsame Schienenstück befahren.
+Lok 0 muss warten.
+Lok 1 verlässt das gemeinsame Schienenstück.
+Lok 1 fährt.
+Lok 0 befährt das gemeinsame Schienenstück.
+Lok 0 verlässt das gemeinsame Schienenstück.
+Lok 0 fährt.
+Lok 0 möchte das gemeinsame Schienenstück befahren.
+Lok 0 muss warten.
+Lok 1 möchte das gemeinsame Schienenstück befahren.
+Lok 1 befährt das gemeinsame Schienenstück.
+Lok 1 verlässt das gemeinsame Schienenstück.
+Lok 1 fährt.
+Lok 0 befährt das gemeinsame Schienenstück.
+Lok 0 verlässt das gemeinsame Schienenstück.
+Lok 0 fährt.
 ```
 
 ## Auswertung
