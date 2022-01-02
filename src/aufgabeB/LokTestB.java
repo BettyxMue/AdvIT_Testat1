@@ -16,18 +16,18 @@ public class LokTestB {
 
         /**
          *
-         * Beispiel 1: Lok 0 schneller als Lok 1 (Lok 0 > Lok 1)
+         * Beispiel 1: Lok 0 langsamer als Lok 1 (Lok 0 < Lok 1)
          *
          */
         ArrayList<LokB> threads = new ArrayList<>();
 
         // Initialisierung der standardmäßigen Lokgeschwindigkeit
-        final int lokSpeed = 4000;
+        final int geschwindigkeit = 8000;
 
         // Erzeugung und Start der Lok-Threads
         for(int i = 0; i < 2; i++) {
-            LokB lok = new LokB(i, (lokSpeed * i + lokSpeed));
-            System.out.println("Die Geschwindigkeit von Lok " + i + " beträgt " + (lokSpeed * i + lokSpeed) + " Einheiten.");
+            LokB lok = new LokB(i, (geschwindigkeit - ((geschwindigkeit / 2) * i)));
+            System.out.println("Die Geschwindigkeit von Lok " + i + " beträgt " + (geschwindigkeit - ((geschwindigkeit / 2) * i)) + " Einheiten.");
             threads.add(lok);
             threads.get(i).start();
         }
@@ -42,12 +42,12 @@ public class LokTestB {
         /*ArrayList<LokB> threads = new ArrayList<>();
 
         // Initialisierung der standardmäßigen Lokgeschwindigkeit
-        final int lokSpeed = 4000;
+        final int geschwindigkeit = 4000;
 
         // Erzeugung und Start der Lok-Threads
         for(int i = 0; i < 2; i++) {
-            LokB lok = new LokB(i, lokSpeed);
-            System.out.println("Die Geschwindigkeit von Lok " + i + " beträgt " + lokSpeed + " Einheiten.");
+            LokB lok = new LokB(i, geschwindigkeit);
+            System.out.println("Die Geschwindigkeit von Lok " + i + " beträgt " + geschwindigkeit + " Einheiten.");
             threads.add(lok);
             threads.get(i).start();
         }
@@ -56,18 +56,18 @@ public class LokTestB {
 
         /**
          *
-         * Beispiel 3: Lok 0 langsamer als Lok 1 (Lok 0 < Lok 1)
+         * Beispiel 3: Lok 0 schneller als Lok 1 (Lok 0 > Lok 1)
          *
          */
         /*ArrayList<LokB> threads = new ArrayList<>();
 
         // Initialisierung der standardmäßigen Lokgeschwindigkeit
-        final int lokSpeed = 4000;
+        final int geschwindigkeit = 4000;
 
         // Erzeugung und Start der Lok-Threads
         for(int i = 0; i < 2; i++) {
-            LokB lok = new LokB(i, ((lokSpeed * 2) - (i * lokSpeed)));
-            System.out.println("Die Geschwindigkeit von Lok " + i + " beträgt " + ((lokSpeed * 2) + (i * lokSpeed)) + " Einheiten.");
+            LokB lok = new LokB(i, ((geschwindigkeit) + (i * geschwindigkeit)));
+            System.out.println("Die Geschwindigkeit von Lok " + i + " beträgt " + ((geschwindigkeit) + (i * geschwindigkeit)) + " Einheiten.");
             threads.add(lok);
             threads.get(i).start();
         }

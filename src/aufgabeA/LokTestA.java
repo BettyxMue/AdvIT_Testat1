@@ -13,7 +13,7 @@ public class LokTestA {
 
         /**
          *
-         * Beispiel 1: Lok 0 schneller als Lok 1 (Lok 0 > Lok 1)
+         * Beispiel 1: Lok 0 langsamer als Lok 1 (Lok 0 < Lok 1)
          *
          */
         LokA lok0 = new LokA(0, 8000);
@@ -43,7 +43,7 @@ public class LokTestA {
 
         /**
          *
-         * Beispiel 3: Lok 0 langsamer als Lok 1 (Lok 0 < Lok 1)
+         * Beispiel 3: Lok 0 schneller als Lok 1 (Lok 0 > Lok 1)
          *
          */
         /*LokA lok000 = new LokA(0, 4000);
