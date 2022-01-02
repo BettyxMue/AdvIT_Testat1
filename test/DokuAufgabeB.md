@@ -23,7 +23,9 @@ public LokB(int id, long geschwindigkeit) {
     }
 }
 ```        
-    
+
+Für genauere Details bzgl. der Anpassung der Methoden, o.Ä. findet man genaueres in der direkten Code-Dokumentation.
+
 ## Beispiele
 
 
