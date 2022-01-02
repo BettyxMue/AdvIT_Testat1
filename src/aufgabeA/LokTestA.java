@@ -20,11 +20,11 @@ public class LokTestA {
         LokA lok1 = new LokA(1, 4000);
 
         System.out.println("Die Geschwindigkeit von Lok " + lok0.getNumber() + " beträgt " + lok0.getGeschwindigkeit() + " Einheiten.");
-        lok0.start();
-
         System.out.println("Die Geschwindigkeit von Lok " + lok1.getNumber() + " beträgt " + lok1.getGeschwindigkeit() + " Einheiten.");
-        lok1.start();
         System.out.println("\nStart der Beispielausgabe: \n" );
+
+        lok0.start();
+        lok1.start();
 
         /***
          *
@@ -35,11 +35,11 @@ public class LokTestA {
         LokA lok01 = new LokA(1, 4000);
 
         System.out.println("Die Geschwindigkeit von Lok " + lok0.getNumber() + " beträgt " + lok0.getGeschwindigkeit() + " Einheiten.");
-        lok0.start();
-
         System.out.println("Die Geschwindigkeit von Lok " + lok1.getNumber() + " beträgt " + lok1.getGeschwindigkeit() + " Einheiten.");
-        lok1.start();
-        System.out.println("\nStart der Beispielausgabe: \n" );*/
+        System.out.println("\nStart der Beispielausgabe: \n" );
+
+        lok0.start();
+        lok1.start();*/
 
         /***
          *
@@ -50,10 +50,10 @@ public class LokTestA {
         LokA lok001 = new LokA(1, 8000);
 
         System.out.println("Die Geschwindigkeit von Lok " + lok0.getNumber() + " beträgt " + lok0.getGeschwindigkeit() + " Einheiten.");
-        lok0.start();
-
         System.out.println("Die Geschwindigkeit von Lok " + lok1.getNumber() + " beträgt " + lok1.getGeschwindigkeit() + " Einheiten.");
-        lok1.start();
-        System.out.println("\nStart der Beispielausgabe: \n" );*/
+        System.out.println("\nStart der Beispielausgabe: \n" );
+
+        lok0.start();
+        lok1.start();*/
     }
 }

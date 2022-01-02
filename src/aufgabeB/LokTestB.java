@@ -67,7 +67,7 @@ public class LokTestB {
         // Erzeugung und Start der Lok-Threads
         for(int i = 0; i < 2; i++) {
             LokB lok = new LokB(i, ((lokSpeed * 2) - (i * lokSpeed)));
-            System.out.println("Die Geschwindigkeit von Lok " + i + " beträgt " + ((lokSpeed * 2) - (i * lokSpeed)) + " Einheiten.");
+            System.out.println("Die Geschwindigkeit von Lok " + i + " beträgt " + ((lokSpeed * 2) + (i * lokSpeed)) + " Einheiten.");
             threads.add(lok);
             threads.get(i).start();
         }

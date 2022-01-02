@@ -5,8 +5,8 @@ Implementieren Sie eine Java-Lösung für die `enter`- und `exit`-Methoden als E
 Um die Problemstellung auf Grundlage der Erzeuger-/Verbraucher-Problematik zu beheben, werden zwei Sempahoren verwendet 
 mit den folgenden Eigenschaften:
 ```java
-    private static Semaphore besetzt = new Semaphore(0, true);
-    private static Semaphore frei = new Semaphore(1, true);
+private static Semaphore besetzt = new Semaphore(0, true);
+private static Semaphore frei = new Semaphore(1, true);
 ```
 
 ## Beispiele
@@ -20,11 +20,15 @@ realisiert. Diese werden am Anfang bei Initialisierung an den Konstruktor in For
 veranschaulichenden Geschwindigkeitseinheit mitgegeben.
 
 ```java
-    LokA lok0 = new LokA(0, 8000);
-    LokA lok1 = new LokA(1, 4000);
+LokA lok0 = new LokA(0, 8000);
+LokA lok1 = new LokA(1, 4000);
 
-    lok0.start();
-    lok1.start();
+System.out.println("Die Geschwindigkeit von Lok " + lok0.getNumber() + " beträgt " + lok0.getGeschwindigkeit() + " Einheiten.");
+System.out.println("Die Geschwindigkeit von Lok " + lok1.getNumber() + " beträgt " + lok1.getGeschwindigkeit() + " Einheiten.");
+System.out.println("\nStart der Beispielausgabe: \n" );
+
+lok0.start();
+lok1.start();
 ```
 
 #### Ausgabe
@@ -34,11 +38,15 @@ veranschaulichenden Geschwindigkeitseinheit mitgegeben.
 Im zweiten Beispiel sind beide Loks gleich schnell, jedoch muss trotzdem die vorgegebene Reihenfolge beibehalten werden.
 
 ```java
-    LokA lok00 = new LokA(0, 4000);
-    LokA lok01 = new LokA(1, 4000);
-    
-    lok00.start();
-    lok01.start();
+LokA lok00 = new LokA(0, 4000);
+LokA lok01 = new LokA(1, 4000);
+
+System.out.println("Die Geschwindigkeit von Lok " + lok0.getNumber() + " beträgt " + lok0.getGeschwindigkeit() + " Einheiten.");
+System.out.println("Die Geschwindigkeit von Lok " + lok1.getNumber() + " beträgt " + lok1.getGeschwindigkeit() + " Einheiten.");
+System.out.println("\nStart der Beispielausgabe: \n" );
+
+lok0.start();
+lok1.start();
 ```
 
 #### Ausgabe
@@ -49,11 +57,15 @@ Im dritten Beispiel ist die Geschwindigkeit von Lok 1 höher als die Geschwindig
 warten müssen, um die abwechselnde Reihenfolge von Lok 0 und Lok 1 zu gewährleisten.
 
 ```java
-    LokA lok000 = new LokA(0, 4000);
-    LokA lok001 = new LokA(1, 8000);
+LokA lok000 = new LokA(0, 4000);
+LokA lok001 = new LokA(1, 8000);
 
-    lok000.start();
-    lok001.start();
+System.out.println("Die Geschwindigkeit von Lok " + lok0.getNumber() + " beträgt " + lok0.getGeschwindigkeit() + " Einheiten.");
+System.out.println("Die Geschwindigkeit von Lok " + lok1.getNumber() + " beträgt " + lok1.getGeschwindigkeit() + " Einheiten.");
+System.out.println("\nStart der Beispielausgabe: \n" );
+
+lok0.start();
+lok1.start();
 ```
 
 #### Ausgabe
