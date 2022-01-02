@@ -12,7 +12,7 @@ public class LokA extends Thread {
     private static Semaphore besetzt = new Semaphore(0, true);
     private static Semaphore frei = new Semaphore(1, true);
 
-    /***
+    /**
      *
      * Dies ist der Konstruktor der Klasse LokA. Jede Lok stellt dabei einen Thread dar.
      *
@@ -27,7 +27,7 @@ public class LokA extends Thread {
         this.geschwindigkeit = geschwindigkeit;
     }
 
-    /***
+    /**
      *
      * Diese Funktion lässt Lok 0 den kritischen Abschnitt betreten. Ggf. muss diese warten, wenn der Abschnitt
      * noch nicht frei ist.
@@ -49,7 +49,7 @@ public class LokA extends Thread {
         System.out.println("Lok " + nummer + " befährt das gemeinsame Schienenstück.");
     }
 
-    /***
+    /**
      *
      * Diese Funktion lässt Lok 0 den kritischen Abschnitt verlassen. Dies passiert nach einer bestimmten Zeit,
      * abhängig von der Geschwindigkeit der Lok (siehe dafür: run-Methode).
@@ -64,7 +64,7 @@ public class LokA extends Thread {
         System.out.println("Lok " + nummer + " verlässt das gemeinsame Schienenstück.");
     }
 
-    /***
+    /**
      *
      * Diese Funktion lässt Lok 1 den kritischen Abschnitt betreten. Ggf. muss diese warten, wenn der Abschnitt
      * noch nicht frei ist.
@@ -86,7 +86,7 @@ public class LokA extends Thread {
         System.out.println("Lok " + nummer + " befährt das gemeinsame Schienenstück.");
     }
 
-    /***
+    /**
      *
      * Diese Funktion lässt Lok 0 den kritischen Abschnitt verlassen. Dies passiert nach einer bestimmten Zeit,
      * abhängig von der Geschwindigkeit der Lok (siehe dafür: run-Methode).
@@ -101,7 +101,7 @@ public class LokA extends Thread {
         System.out.println("Lok " + nummer + " verlässt das gemeinsame Schienenstück.");
     }
 
-    /***
+    /**
      *
      * Diese Funktion lässt die Loks (im Sinne der Threads) schlafen, um das Fahren von Loks zu simulieren.
      * Je kürzer eine Lok bzw. der durch die Lok dargestellten Thread schläft, desto "schneller" fährt sie.
@@ -120,7 +120,7 @@ public class LokA extends Thread {
         }
     }
 
-    /***
+    /**
      *
      * Diese Funktion legt den Ablauf und Funktionsweise eines Threads (hier einer Lok) fest, sobald dieser in der
      * main-Methode gestartet wird. Beide Loks können dauerhaft laufen auf Grund einer Endlosschleife.
@@ -174,7 +174,7 @@ public class LokA extends Thread {
         }
     }
 
-    /***
+    /**
      *
      * Diese Funktion gibt die Geschwindigkeit einer Lok zurück in einer fiktiven Geschwindigkeitseinheit.
      *
@@ -185,9 +185,9 @@ public class LokA extends Thread {
         return geschwindigkeit;
     }
 
-    /***
+    /**
      *
-     * Diese Funktion gibt die "Id" einer Lok zurück. Der Name "number" wurde hier gewählt, um nicht mit der
+     * Diese Funktion gibt die "Id" einer Lok zurück. Der Name "nummer" wurde hier gewählt, um nicht mit der
      * standardmäßig gesetzten Id eines Threads verwechselt zu werden.
      *
      * @return int - gibt "Id" bzw. "Nummer" der Lok zurück

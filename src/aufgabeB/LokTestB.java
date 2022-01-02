@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class LokTestB {
 
-    /***
+    /**
      *
      * Einstiegspunkt des Programms für Übung B
      *
@@ -14,7 +14,7 @@ public class LokTestB {
      */
     public static void main(String[] args) {
 
-        /***
+        /**
          *
          * Beispiel 1: Lok 0 schneller als Lok 1 (Lok 0 > Lok 1)
          *
@@ -34,7 +34,7 @@ public class LokTestB {
 
         System.out.println("\nStart der Beispielausgabe: \n" );
 
-        /***
+        /**
          *
          * Beispiel 2: Lok 0 gleich schnell wie Lok 1 (Lok 0 = Lok 1)
          *
@@ -54,7 +54,7 @@ public class LokTestB {
 
         System.out.println("\nStart der Beispielausgabe: \n" );*/
 
-        /***
+        /**
          *
          * Beispiel 3: Lok 0 langsamer als Lok 1 (Lok 0 < Lok 1)
          *
