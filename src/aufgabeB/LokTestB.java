@@ -8,7 +8,7 @@ public class LokTestB {
      *
      * Einstiegspunkt des Programms für Übung B
      *
-     * Return: void
+     * @return void
      * @param args
      *
      */

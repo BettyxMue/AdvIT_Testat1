@@ -5,7 +5,7 @@ import java.util.concurrent.Semaphore;
 public class LokA extends Thread {
 
     // Initialisierung der verwendeten Variablen
-    private final int number;
+    private final int nummer;
     private final long geschwindigkeit;
 
     // Initialisierung der benötigten Semaphoren
@@ -16,15 +16,15 @@ public class LokA extends Thread {
      *
      * Dies ist der Konstruktor der Klasse LokA. Jede Lok stellt dabei einen Thread dar.
      *
-     * Return: void
-     * @param: number, geschwindigkeit
+     * @param nummer - Id des Threads --> Verwendung für Bezeichnung der Loks
+     * @param geschwindigkeit - Geschwindigkeit jeder Lok wird mittels Zahl (long) als Schlafzeit in Millisekunden
+     *                          angegeben und stellt somit deren Geschwindigkeit in undefinierten
+     *                          "Geschwindigkeitseinheiten" dar
      *
      */
-    public LokA(int number, long geschwindigkeit) {
-        this.number = number;                           // Id des Threads - Verwendung für Bezeichnung der Loks
-        this.geschwindigkeit = geschwindigkeit; // Die Geschwindigkeit jeder Lok wird mittels einer Zahl (long) als
-                                                // Schlafzeit in Millisekunden angegeben und stellt somit deren
-                                                // Geschwindigkeit in undefinierten "Geschwindigkeitseinheiten" dar.
+    public LokA(int nummer, long geschwindigkeit) {
+        this.nummer = nummer;
+        this.geschwindigkeit = geschwindigkeit;
     }
 
     /***
@@ -32,11 +32,11 @@ public class LokA extends Thread {
      * Diese Funktion lässt Lok 0 den kritischen Abschnitt betreten. Ggf. muss diese warten, wenn der Abschnitt
      * noch nicht frei ist.
      *
-     * Return: void
+     * @return void
      *
      */
     public void enterLok0() {
-        System.out.println("Lok " + number + " möchte das gemeinsame Schienenstück befahren.");
+        System.out.println("Lok " + nummer + " möchte das gemeinsame Schienenstück befahren.");
 
         try {
             // Lok 0 erwirbt Semaphor "frei" (Setzen des Semaphorwerts auf 0), welches Startwert 1 hat und durch
@@ -46,7 +46,7 @@ public class LokA extends Thread {
             e.printStackTrace(); // automatisch generierter catch-Block durch die acquire-Funktion eines Sempahores
         }
 
-        System.out.println("Lok " + number + " befährt das gemeinsame Schienenstück.");
+        System.out.println("Lok " + nummer + " befährt das gemeinsame Schienenstück.");
     }
 
     /***
@@ -54,14 +54,14 @@ public class LokA extends Thread {
      * Diese Funktion lässt Lok 0 den kritischen Abschnitt verlassen. Dies passiert nach einer bestimmten Zeit,
      * abhängig von der Geschwindigkeit der Lok (siehe dafür: run-Methode).
      *
-     * Return: void
+     * @return void
      *
      */
     public void exitLok0() {
         // Lok 0 gibt Semaphor "besetzt" frei (Setzen des Semaphorwerts auf 1), welches Startwert 0 hat, und gibt somit
         // Semaphor für Lok 1 frei, sodass diese kritischen Abschnitt befahren kann
         besetzt.release();
-        System.out.println("Lok " + number + " verlässt das gemeinsame Schienenstück.");
+        System.out.println("Lok " + nummer + " verlässt das gemeinsame Schienenstück.");
     }
 
     /***
@@ -69,11 +69,11 @@ public class LokA extends Thread {
      * Diese Funktion lässt Lok 1 den kritischen Abschnitt betreten. Ggf. muss diese warten, wenn der Abschnitt
      * noch nicht frei ist.
      *
-     * Return: void
+     * @return void
      *
      */
     public void enterLok1() {
-        System.out.println("Lok " + number + " möchte das gemeinsame Schienenstück befahren.");
+        System.out.println("Lok " + nummer + " möchte das gemeinsame Schienenstück befahren.");
 
         try {
             // Lok 1 erwirbt Semaphor "besetzt" (Setzen des Semaphorwerts auf 0), welches vorher durch das Verlassen von
@@ -83,7 +83,7 @@ public class LokA extends Thread {
             e.printStackTrace(); // automatisch generierter catch-Block durch die acquire-Funktion eines Sempahores
         }
 
-        System.out.println("Lok " + number + " befährt das gemeinsame Schienenstück.");
+        System.out.println("Lok " + nummer + " befährt das gemeinsame Schienenstück.");
     }
 
     /***
@@ -91,14 +91,14 @@ public class LokA extends Thread {
      * Diese Funktion lässt Lok 0 den kritischen Abschnitt verlassen. Dies passiert nach einer bestimmten Zeit,
      * abhängig von der Geschwindigkeit der Lok (siehe dafür: run-Methode).
      *
-     * Return: void
+     * @return void
      *
      */
     public void exitLok1() {
         // Lok 1 gibt Semaphor "frei" frei (Setzen des Semaphorwerts auf 1), sodass Lok 0 den kritischen Abschnitt
         // wieder betreten bzw. Semaphor "frei" für Eintritt in dieses erhalten kann
         frei.release();
-        System.out.println("Lok " + number + " verlässt das gemeinsame Schienenstück.");
+        System.out.println("Lok " + nummer + " verlässt das gemeinsame Schienenstück.");
     }
 
     /***
@@ -106,12 +106,12 @@ public class LokA extends Thread {
      * Diese Funktion lässt die Loks (im Sinne der Threads) schlafen, um das Fahren von Loks zu simulieren.
      * Je kürzer eine Lok bzw. der durch die Lok dargestellten Thread schläft, desto "schneller" fährt sie.
      *
-     * Return: void
-     * @param: geschwindigkeit
+     * @return void
+     * @param geschwindigkeit
      *
      */
     public void fahren(long geschwindigkeit) {
-        System.out.println("Lok " + number + " fährt.");
+        System.out.println("Lok " + nummer + " fährt.");
 
         try {
             sleep(geschwindigkeit);
@@ -125,12 +125,12 @@ public class LokA extends Thread {
      * Diese Funktion legt den Ablauf und Funktionsweise eines Threads (hier einer Lok) fest, sobald dieser in der
      * main-Methode gestartet wird. Beide Loks können dauerhaft laufen auf Grund einer Endlosschleife.
      *
-     * Return: void
+     * @return void
      *
      */
     @Override
     public void run() {
-        if (number == 0) {  // Durch eine if-Abfrage, wird sichergestellt, dass auch nur Lok0-Funktionen für Lok 0
+        if (nummer == 0) {  // Durch eine if-Abfrage, wird sichergestellt, dass auch nur Lok0-Funktionen für Lok 0
                         // ausgeführt werden.
             while (true) {
                 try {
@@ -152,7 +152,7 @@ public class LokA extends Thread {
             }
         }
 
-        if (number == 1) {  // Durch eine if-Abfrage, wird sichergestellt, dass auch nur Lok1-Funktionen für Lok 1
+        if (nummer == 1) {  // Durch eine if-Abfrage, wird sichergestellt, dass auch nur Lok1-Funktionen für Lok 1
                         // ausgeführt werden.
             while (true) {
                 try {
@@ -178,7 +178,7 @@ public class LokA extends Thread {
      *
      * Diese Funktion gibt die Geschwindigkeit einer Lok zurück in einer fiktiven Geschwindigkeitseinheit.
      *
-     * Return: long
+     * @return long - gibt Geschwindigkeit der Lok zurück
      *
      */
     public long getGeschwindigkeit() {
@@ -190,10 +190,10 @@ public class LokA extends Thread {
      * Diese Funktion gibt die "Id" einer Lok zurück. Der Name "number" wurde hier gewählt, um nicht mit der
      * standardmäßig gesetzten Id eines Threads verwechselt zu werden.
      *
-     * Return: int
+     * @return int - gibt "Id" bzw. "Nummer" der Lok zurück
      *
      */
-    public int getNumber(){
-        return number;
+    public int getNummer(){
+        return nummer;
     }
 }

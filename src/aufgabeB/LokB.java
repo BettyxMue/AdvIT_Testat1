@@ -21,8 +21,11 @@ public class LokB extends Thread {
      *
      * Dies ist der Konstruktor der Klasse LokB. Jede Lok stellt dabei einen Thread dar.
      *
-     * Return: void
-     * @param: id, geschwindigkeit
+     * @return void
+     * @param id - Id des Threads --> Verwendung für Bezeichnung der Loks
+     * @param geschwindigkeit - Geschwindigkeit jeder Lok wird mittels Zahl (long) als Schlafzeit in Millisekunden
+     *                          angegeben und stellt somit deren Geschwindigkeit in undefinierten
+     *                          "Geschwindigkeitseinheiten" dar
      *
      */
     public LokB(int id, long geschwindigkeit) {
@@ -46,7 +49,7 @@ public class LokB extends Thread {
      * Diese Funktion lässt Lok 0 den kritischen Abschnitt betreten. Ggf. muss diese warten, wenn der Abschnitt
      * noch nicht frei ist. Durch die Variable ctr wird die Reihenfolge der Loks realisiert.
      *
-     * Return: void
+     * @return void
      *
      */
     public void enterLok0 () {
@@ -89,7 +92,7 @@ public class LokB extends Thread {
      * Diese Funktion lässt Lok 0 den kritischen Abschnitt verlassen. Gleichzeitig wird hier der Thread von Lok 1
      * erneut angestoßen, sollte Lok 1 auf das Verlassen des kritischen Abschnitts von Lok 0 warten.
      *
-     * Return: void
+     * @return void
      *
      */
     public void exitLok0 () {
@@ -118,7 +121,7 @@ public class LokB extends Thread {
      * Diese Funktion lässt Lok 1 den kritischen Abschnitt betreten. Ggf. muss diese warten, wenn der Abschnitt
      * noch nicht frei ist. Durch die Variable ctr wird die Reihenfolge der Loks realisiert.
      *
-     * Return: void
+     * @return void
      *
      */
     public void enterLok1 () {
@@ -161,7 +164,7 @@ public class LokB extends Thread {
      * Diese Funktion lässt Lok 1 den kritischen Abschnitt verlassen. Gleichzeitig wird hier der Thread von Lok 0
      * erneut angestoßen, sollte Lok 0 auf das Verlassen des kritischen Abschnitts von Lok 1 warten.
      *
-     * Return: void
+     * @return void
      *
      */
     public void exitLok1 () {
@@ -190,8 +193,8 @@ public class LokB extends Thread {
      * Diese Funktion lässt die Loks (im Sinne der Threads) schlafen, um das Fahren von Loks zu simulieren.
      * Je kürzer eine Lok bzw. der durch de Lok dargestellten Thread schläft, desto "schneller" fährt sie.
      *
-     * Return: void
-     * @param: geschwindigkeit
+     * @return void
+     * @param geschwindigkeit
      *
      */
     public void fahren(long geschwindigkeit)  {
@@ -208,7 +211,7 @@ public class LokB extends Thread {
      * Diese Funktion legt den Ablauf und Funktionsweise eines Threads (hier einer Lok) fest, sobald dieser in der
      * main-Methode gestartet wird. Beide Loks können dauerhaft laufen auf Grund einer Endlosschleife.
      *
-     * Return: void
+     * @return void
      *
      */
     @Override
