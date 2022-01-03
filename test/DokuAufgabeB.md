@@ -32,13 +32,32 @@ Neben den Semaphoren wird ein Counter benötigt, der die korrekte Reihenfolge de
 Threads auf diesen zugreifen, benötigt man das 3. Semaphor, welches die Bearbeitung dieses Counters als kritischen 
 Abschnitt behandelt. So wird ausgeschlossen, dass beide Threads gleichzeitig versuchen diesen Counter zu verändern.
 
+Um die Reihenfolge zu gewährleisten wird der Counter zum Anfang auf 0 gesetzt. Eine Überprüfung dessen auf 0, befähigt
+Lok 0 den kritischen Abschnitt betreten zu können durch die Freigabe ihres privaten Semaphors, welches den Startwert 0 
+besitzt. Die Überprüfung des Counters erfolgt in einem `static Semaphor mutex` mit Startwert 1. Nur so kann Lok 0 dieses 
+für die Einfahrt in den kritischen Bereich erhalten. Sollte der Counter 1 betragen, so bedeutete das, dass Lok 1 den 
+kritischen Bereich noch nicht verlassen hat und Lok 0 somit warten müsste. Dies wird dadurch realisiert, dass das 
+private Semaphor von Lok 0 nicht freigegeben wird und sie somit beim `privSem[0].acquire()` warten muss. 
+
+Bei der Ausfahrt aus dem kritischen Bereich wird wie anfangs im `mutex` der Counter auf 1 gesetzt, sodass Lok 1 bei 
+ihrer Überprüfung des Counters nun in den Bereich einfahren könnte. Des Weiteren findet ein erneuter Anstoß von Lok 1 
+statt, sollte diese aus einer möglichen vorherigen Runde bereits auf das Einfahren in den kritischen Bereich warten. Ist
+dies der Fall, so wird das private Semaphore `privSem[1]` von Lok 1 freigegeben. Auch dieses besitzt den Startwert 0.
+
+Dieses oben beschrieben Prinzip wird auch bei Lok 1 so übernommen nur mit der Veränderung des Counters und den 
+privaten Semaphoren von Lok 1 statt Lok 0. So wird z.B., sollte Lok 0 auf Eintritt in den kritischen Abschnitt warten, auch 
+diese beim Verlassen von Lok 1 erneut angestoßen.
+
 Die Teilaufgabe b) wird mittels Arrays gelöst. Ist jedoch auch auf die Art und Weise wie Teilafgabe b) möglich. Jedoch 
 wählte ich diese Variante für b), um beide Wege darzustellen.
 
 Für genauere Details bzgl. der Anpassung der Methoden, o.Ä. findet man genaueres in der direkten Code-Dokumentation.
 
 ## Beispiele
-
+Zur Darstellung der Anforderungen an den Code werden drei Beispielfälle mit jeweils unterschiedlichen
+Geschwindigkeitsverteilungen durchgeführt. Hierbei ist es wichtig die Reihenfolge der beiden Loks (zuerst Lok 0, danach
+Lok 1) beizubehalten. Die Beispiele sollen verdeutlichen, dass der Programmcode funktioniert und die gestellten
+Anforderungen der Aufgabe (Lösung mit privaten Sempahoren) erfüllt.
 
 ### Beispiel 1: Lok 0 > Lok 1
 Im ersten Beispiel ist Lok 0 schneller als Lok 1. Dies wird über die Dauer der Schlafenszeit der beiden Threads

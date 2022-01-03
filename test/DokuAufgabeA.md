@@ -17,12 +17,19 @@ einfährt. Diese Einstellung sorgt auch dafür, dass die Loks alternierend das g
 liegt daran, dass das Einfahren von Lok 1 das Verlassen von Lok 0 erfordert und umgekehrt. Nebenbei sorgt dies auch 
 dafür, dass niemals beide Loks gleichzeitig sich innerhalb des gemeinsamen Bereichs befinden können.
 
+Dies liegt daran, dass Lok 1 das Sempahor `besetzt` erst erhalten kann, sobald Lok 0 dieses durch das Ausfahren aus dem
+kritischen Bereich freigegeben hat. Denn der Startwert dieses Semaphors beträgt 0. Auf der anderen Seite kann Lok 0 erst
+den kritischen Bereich wieder betreten, sobald Lok 1 das Semaphor `frei` wieder freigegeben hat. Dieses besitzt zwar den
+Startwert 1, jedoch wird der Wert auf 0 verringert, sobald Lok 0 in den kritischen Abschnitt einfährt. Um dies also
+erneut tun zu können, ist eine Rotation von Lok 1 durch diesen Bereich nötig. Dadurch wird die Reihenfolge gewahrt.
+
 Für genauere Details bzgl. der Anpassung der Methoden, o.Ä. findet man genaueres in der direkten Code-Dokumentation.
 
 ## Beispiele
 Zur Darstellung der Anforderungen an den Code werden drei Beispielfälle mit jeweils unterschiedlichen 
 Geschwindigkeitsverteilungen durchgeführt. Hierbei ist es wichtig die Reihenfolge der beiden Loks (zuerst Lok 0, danach 
-Lok 1) beizubehalten.
+Lok 1) beizubehalten. Die Beispiele sollen verdeutlichen, dass der Programmcode funktioniert und die gestellten 
+Anforderungen der Aufgabe (Lösung durch Erzeuger-/Verbraucher-Problematik) erfüllt.
 
 ### Beispiel 1: Lok 0 > Lok 1
 Im ersten Beispiel ist Lok 0 schneller als Lok 1. Dies wird über die Dauer der Schlafenszeit der beiden Threads
